@@ -1,4 +1,4 @@
-import Sidebar from "@/components/index";
+import Sidebar from "@/components/sidebar/index";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
