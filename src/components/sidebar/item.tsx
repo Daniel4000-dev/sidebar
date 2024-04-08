@@ -3,6 +3,7 @@ import React, { useMemo, useState } from "react";
 
 import { LucideIcon, ChevronDown } from "lucide-react";
 import { usePathname, useRouter } from "../../../node_modules/next/navigation";
+import SubMenuItem from "./submenuItem";
 
 interface ISidebarItem {
   name: string;
@@ -31,8 +32,16 @@ const SidebarItem = ({ item }: { item: ISidebarItem }) => {
   };
 
   const isActive = useMemo(() => {
+
+    if(items && items.length > 0) {
+      if(items.find(item => item.path === pathname)) {
+        setExpanded(true);
+        return true;
+      }
+    }
+
     return path === pathname;
-  }, [path, pathname]);
+  }, [path, pathname, items]);
 
   return (
     <>
@@ -56,8 +65,12 @@ const SidebarItem = ({ item }: { item: ISidebarItem }) => {
       </div>
       {expanded &&
         items &&
-        items.length > 0 &&
-        items.map((item) => <p key={item.path}>{item.name}</p>)}
+        items.length > 0 && (<div
+          className='flex flex-col space-y-1 ml-10 mt-3'
+        >
+          {items.map((item) => <SubMenuItem key={item.path} item={item} /> )}
+        </div>)
+      }
     </>
   );
 };

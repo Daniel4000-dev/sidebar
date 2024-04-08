@@ -53,7 +53,7 @@ const items: ISidebarItem[] = [
         items: [
             {
                 name: 'General',
-                path: '/settigns',
+                path: '/settings',
             },
             {
                 name: 'Security',
