@@ -9,10 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        active: '#6b32ec',
-        background: '#f5f5ff',
-        icon: '#636c80'
-      }
+        sidebar: {
+          active: "#6b32ec",
+          background: "#f5f5ff",
+          iconColor: "#636c80",
+        },
+      },
     },
   },
   plugins: [],
